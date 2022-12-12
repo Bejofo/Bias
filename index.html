@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+  <script src="sketch.js"></script>
+</head>
+
+<style>
+.container{
+    display: flex;
+}
+.fixed{
+    width: 550px;
+}
+.flex-item{
+    flex-grow: 1;
+}
+</style>
+
+<body>
+  <main>
+    <div id="game" class="container">
+      <div id="gamediv" class="fixed"></div>
+      <div class="flex-item">
+        We have too many patients for the doctors to diagnose, and we need to quick way to determine who is sick or not.
+        <br>
+        By plotting previous patient data, we hope to find quick way to predict who is infected or not.
+        <br>
+        Your goal is to draw a line that best seperates the infected (red) from the not infected (green).
+        <br>
+        Draw a line by <b>clicking and draging  left to right</b>. Don't try right to left. I haven't fixed that yet.
+        <br>
+        Don't worry too much about getting it perfect, we just a need a high enough accuracy, aim for 90%.
+        <br>
+        If you don't like your line, you can reset it just by drawing another line.
+        <br><br>
+        Your stats
+        <div id="output"></div>
+      </div>
+    </div>
+    <div id="moreinfo" style="display: none;">
+      <h1>What is the point of this???</h1>
+
+      <h2>How does have anything to do with machine learning?</h2>
+      The process of drawing a seperating line is pretty much what most of machine learning boils down to. Of course the computer can do this faster and better than you,
+      but you get the idea.
+
+      <h2>Bias</h2>
+      If you experiment and draw the lines a couple of different times, you can see that you will pretty consistently have better accuracy rates for
+      square patients. This isn't because you are secretly racist against triangle patients (are you? ಠ_ಠ) but it's an artifact of how triangle patients 
+      are a minority. In this case, the triangle patients follow a different pattern than the sqaures patients, but that can be hard to see because
+      of the square's majority.
+
+      <h2>The question of fairness</h2>
+      There is endless amount of literature debating what it means to be fair. Being fair is subjective, and hard to define.
+      In this demostration here, is it ok to misclassify more triangle patients for a better overall accuracy? 
+      If we allowed to model to discriminate by race, it's possible to get high accuracy for both triangles and squares. Is this ok? 
+      Or should race never be a consideration in medical descions?  
+
+
+      <br>
+      <br>
+      I may have bitten off more than I can chew. Which is why this site looks so ugly.
+    </div>
+    <button onclick="toggle()">More info</button>
+    <button onclick="reset()">Randomize Patients</button>
+
+
+    <script>
+      var showGame = true;
+      function toggle(){
+        if(showGame){
+          document.querySelector('#game').style.display = 'none';    
+          document.querySelector('#moreinfo').style.display = '';    
+          document.querySelector('button').innerText = 'Go back';    
+
+        } else{
+          polyline = [];
+          document.querySelector('#game').style.display = '';    
+          document.querySelector('#moreinfo').style.display = 'none';    
+          document.querySelector('button').innerText = 'More info';    
+        }
+        showGame = !showGame;
+      }
+    </script>
+  </main>
+</body>
+
+</html>
