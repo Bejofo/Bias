@@ -37,7 +37,8 @@
   }
 
   #moreinfo{
-    margin: 2%;
+    margin: auto;
+    width: 60%;
     font-size:smaller;
   }
 </style>
@@ -49,14 +50,14 @@
       <div class="flex-item">
         <h3>The plot</h3> 
         Welcome to ████ hospital, as a (unpaid) intern you will be helping the wonderful doctors here to diagnose patients quicker and
-        more efficently than ever before.
+        more efficiently than ever before.
         <br>
-        To the left we have plotted previous paitent data. The x and y coordinates correspond to predicting factors of the disease we are trying to test for.
+        To the left we have plotted previous patient data. The x and y coordinates correspond to predicting factors of the disease we are trying to test for.
         Hopefully you can find a pattern to allow us to predict whenever or not future patients are infected or not.
         <h3>Instructions</h3>
-        Your goal is to draw a line that best seperates the infected (red) from the not infected (green).
+        Your goal is to draw a line that best separates the infected (red) from the healthy (green).
         <br>
-        Draw a line by <b>clicking and draging left to right</b>. Don't try right to left. I haven't fixed that yet.
+        Draw a line by <b>clicking and dragging left to right</b>. Don't try right to left. I haven't fixed that yet.
         <br>
         Don't worry too much about getting it perfect, but try to get the accuracy as high as possible.
         <br>
@@ -73,27 +74,26 @@
 
     <div id="moreinfo" style="display: none;">
       <h1>What is the point of this???</h1>
-
-      <h3>How does have anything to do with machine learning?</h3>
-      The process of drawing a seperating line is pretty much what most of machine learning boils down to. Of course the
-      computer can do this faster and better than you, but you get the idea.
-      <h2>Bias</h2>
-      If you experiment and draw the lines a couple of different times, you can see that you will pretty consistently
-      have better accuracy rates for
-      square patients. This isn't because you are secretly racist against triangle patients but it's an
+      The purpose of this website is to demonstrate algorithmic bias. If you experiment a couple of different times, you can see that you will pretty consistently
+      have better accuracy rates for square patients compared to triangle patients. This isn't because you are secretly racist against triangle patients but it's an
       artifact of how triangle patients are a minority. In this case, the triangle patients follow a different pattern than the square patients, but that
-      can be hard to see because of the square's majority. Algorithms that blindly optimize for maximum accuracy can fall victim to this as well.
-      <h2>The question of fairness</h2>
+      can be hard to see because of the square's majority. 
+
+      <h3>Algorithms? What algorithms?</h3>
+      The process of drawing a separating line is pretty much what most of machine learning boils down to. Of course, the
+      difference is that you eyeballed it, while the computer can do this in a much more systematic and precise manner.
+      What you did here is called supervised classification. Classification, becuase you are classifying patients as infected or not.
+      Supervised, because the data already been labeled infected or not.
+
+      <h3>The question of fairness</h3>
       There is endless amount of literature debating what it means to be fair. Being fair is subjective, and hard to
-      define.
-      In this demostration here, is it ok to misclassify more triangle patients for a better overall accuracy?
-      If we allowed to model to discriminate by race, it's possible to get high accuracy for both triangles and squares.
-      Is this ok?
-      Or should race never be a consideration in medical descions?
+      define. But if we want more fair algorithms, society is going to have to formulate a mathetical definition
+      of fairness. 
+
       <br>
       <button onclick="toggle()">Go back</button>
-      <br>
-      I may have bitten off more than I can chew. Which is why this site looks so ugly.
+      <!-- <h3>Further reading, if you are interested</h3> -->
+
     </div>
 
 
