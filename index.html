@@ -13,6 +13,13 @@
 
   .flex-item {
     flex: 1;
+    font-size: smaller;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
   .padding {
@@ -29,8 +36,9 @@
     margin: 1.5;
   }
 
-  .info{
-    
+  #moreinfo{
+    margin: 2%;
+    font-size:smaller;
   }
 </style>
 
@@ -39,23 +47,25 @@
     <div id="game" class="container padding">
       <div id="gamediv" class="flex-item"></div>
       <div class="flex-item">
-        We have too many patients for the doctors to diagnose, and we need to quick way to determine who is sick or not.
+        <h3>The plot</h3> 
+        Welcome to ████ hospital, as a (unpaid) intern you will be helping the wonderful doctors here to diagnose patients quicker and
+        more efficently than ever before.
         <br>
-        By plotting previous patient data, we hope to find quick way to predict who is infected or not.
-        <br>
+        To the left we have plotted previous paitent data. The x and y coordinates correspond to predicting factors of the disease we are trying to test for.
+        Hopefully you can find a pattern to allow us to predict whenever or not future patients are infected or not.
+        <h3>Instructions</h3>
         Your goal is to draw a line that best seperates the infected (red) from the not infected (green).
         <br>
         Draw a line by <b>clicking and draging left to right</b>. Don't try right to left. I haven't fixed that yet.
         <br>
-        Don't worry too much about getting it perfect, we just a need a high enough accuracy, aim for 90%.
+        Don't worry too much about getting it perfect, but try to get the accuracy as high as possible.
         <br>
-        If you don't like your line, you can reset it just by drawing another line.
-        <br>
+        The results will be displayed below, If you don't like the results, you can try again just by drawing another line.
+        Be sure to randomize the patients in order to see if your results generalizes well.
         <div>
           <button onclick="toggle()">More info</button>
           <button onclick="reset()">Randomize Patients</button>
         </div>
-        <br>
         Your stats
         <div id="output"></div>
       </div>
@@ -64,20 +74,15 @@
     <div id="moreinfo" style="display: none;">
       <h1>What is the point of this???</h1>
 
-      <h2>How does have anything to do with machine learning?</h2>
+      <h3>How does have anything to do with machine learning?</h3>
       The process of drawing a seperating line is pretty much what most of machine learning boils down to. Of course the
-      computer can do this faster and better than you,
-      but you get the idea.
-
+      computer can do this faster and better than you, but you get the idea.
       <h2>Bias</h2>
       If you experiment and draw the lines a couple of different times, you can see that you will pretty consistently
       have better accuracy rates for
-      square patients. This isn't because you are secretly racist against triangle patients (are you? ಠ_ಠ) but it's an
-      artifact of how triangle patients
-      are a minority. In this case, the triangle patients follow a different pattern than the sqaures patients, but that
-      can be hard to see because
-      of the square's majority.
-
+      square patients. This isn't because you are secretly racist against triangle patients but it's an
+      artifact of how triangle patients are a minority. In this case, the triangle patients follow a different pattern than the square patients, but that
+      can be hard to see because of the square's majority. Algorithms that blindly optimize for maximum accuracy can fall victim to this as well.
       <h2>The question of fairness</h2>
       There is endless amount of literature debating what it means to be fair. Being fair is subjective, and hard to
       define.
